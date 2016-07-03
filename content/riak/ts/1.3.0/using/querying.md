@@ -565,9 +565,9 @@ client.ts_get('GeoCheckin', ['South Atlantic', 'South Carolina', datetime.dateti
 ```csharp
 var keyCells = new Cell[]
 {
-    new Cell<string>("hash1"),
-    new Cell<string>("user2"),
-    new Cell<DateTime>(FiveMinsAgo)
+    new Cell("hash1"),
+    new Cell("user2"),
+    new Cell(FiveMinsAgo)
 };
 
 var key = new Row(keyCells);

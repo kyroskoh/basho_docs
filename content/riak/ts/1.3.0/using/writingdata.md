@@ -116,38 +116,38 @@ print "Store result:", ts_obj.store()
 ```csharp
 var cells0 = new Cell[]
 {
-    new Cell<string>("Pacific"),
-    new Cell<string>("Washington"),
-    new Cell<DateTime>(TwentyMinsAgo),
-    new Cell<string>("hurricane"),
-    new Cell<double>(82.3)
+    new Cell("Pacific"),
+    new Cell("Washington"),
+    new Cell(TwentyMinsAgo),
+    new Cell("hurricane"),
+    new Cell(82.3)
 };
 
 var cells1 = new Cell[]
 {
-    new Cell<string>("Pacific"),
-    new Cell<string>("Washington"),
-    new Cell<DateTime>(FifteenMinsAgo),
-    new Cell<string>("rain"),
-    new Cell<double>(79.0)
+    new Cell("Pacific"),
+    new Cell("Washington"),
+    new Cell(FifteenMinsAgo),
+    new Cell("rain"),
+    new Cell(79.0)
 };
 
 var cells2 = new Cell[]
 {
-    new Cell<string>("Pacific"),
-    new Cell<string>("Washington"),
-    new Cell<DateTime>(FiveMinsAgo),
-    new Cell<string>("wind"),
+    new Cell("Pacific"),
+    new Cell("Washington"),
+    new Cell(FiveMinsAgo),
+    new Cell("wind"),
     Cell.Null
 };
 
 var cells3 = new Cell[]
 {
-    new Cell<string>("Pacific"),
-    new Cell<string>("Washington"),
-    new Cell<DateTime>(Now),
-    new Cell<string>("snow"),
-    new Cell<double>(20.1)
+    new Cell("Pacific"),
+    new Cell("Washington"),
+    new Cell(Now),
+    new Cell("snow"),
+    new Cell(20.1)
 };
 
 var rows = new Row[]
@@ -392,9 +392,9 @@ client.ts_delete('GeoCheckin', ['South Atlantic', 'South Carolina', datetime.dat
 ```csharp
 var keyCells = new Cell[]
 {
-    new Cell<string>("Pacific"),
-    new Cell<string>("Washington"),
-    new Cell<DateTime>(FifteenMinsAgo)
+    new Cell("Pacific"),
+    new Cell("Washington"),
+    new Cell(FifteenMinsAgo)
 };
 var keyToDelete = new Row(keyCells);
 
