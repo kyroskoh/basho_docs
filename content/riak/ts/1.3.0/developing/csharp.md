@@ -40,12 +40,11 @@ A cell contains a piece of data for a row in a Riak TS table.
 
 >**Note:** Cells are immutable once created.
 
-Use the `Cell` implementation that takes a generic type to define the data type. The following .NET types can be saved into Riak TS:
+Use the type-specific `Cell` constructor to define the data type. The following .NET types can be saved into Riak TS:
 
-* `string`
-* `byte[]` - will be interpreted as UTF-8 encoded string data.
+* `string` - Will be saved as UTF-8 encoded bytes in a Varchar column.
 * All integer types. Will be returned as `long` values.
-* `DateTime` - stored as UTC timestamp with millisecond resolution. Will be returned as UTC `DateTime` value.
+* `DateTime` - stored as UTC timestamp with millisecond resolution. Will be returned as long representing UTC timestamp with millisecond resolution.
 * `bool` - a true/false value. 
 
 
@@ -53,13 +52,13 @@ Use the `Cell` implementation that takes a generic type to define the data type.
 
 Cell constructors accept a value matching the generic type of the class:
 
- * `var c = new Cell<string>("string value")`
- * `var c = new Cell<byte[]>(bytesOfUtf8Data)`
- * `var c = new Cell<uint32>(123456)` - other integer types are allowed
- * `var c = new Cell<float>(12.34F)`
- * `var c = new Cell<double>(56.78)`
- * `var c = new Cell<bool>(false)`
- * `var c = new Cell<DateTime>(DateTime.Now)` - will be converted to UTC for you
+ * `var c = new Cell("string value")`
+ * `var c = new Cell(bytesOfUtf8Data)`
+ * `var c = new Cell(123456)` - other integer types are allowed
+ * `var c = new Cell(12.34F)`
+ * `var c = new Cell(56.78)`
+ * `var c = new Cell(false)`
+ * `var c = new Cell(DateTime.Now)` - will be converted to UTC for you
  * `var c = new Cell()` - represents a `null` value
 
 
