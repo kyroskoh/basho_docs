@@ -24,9 +24,9 @@ canonical_link: "https://docs.basho.com/riak/kv/latest/developing/app-guide"
 [dev data model#user]: /riak/kv/2.1.4/developing/data-modeling/#user-data
 [dev kv model]: /riak/kv/2.1.4/developing/key-value-modeling
 [dev data types]: /riak/kv/2.1.4/developing/data-types
-[dev data types#counters]: /riak/kv/2.1.4/developing/data-types/#counters
-[dev data types#sets]: /riak/kv/2.1.4/developing/data-types/#sets
-[dev data types#maps]: /riak/kv/2.1.4/developing/data-types/#maps
+[dev data types#counters]: /riak/kv/2.1.4/developing/data-types/counters
+[dev data types#sets]: /riak/kv/2.1.4/developing/data-types/sets
+[dev data types#maps]: /riak/kv/2.1.4/developing/data-types/maps
 [usage create objects]: /riak/kv/2.1.4/developing/usage/creating-objects
 [usage search]: /riak/kv/2.1.4/developing/usage/search
 [use ref search]: /riak/kv/2.1.4/using/reference/search
@@ -48,7 +48,7 @@ canonical_link: "https://docs.basho.com/riak/kv/latest/developing/app-guide"
 [obj model erlang]: /riak/kv/2.1.4/developing/getting-started/erlang/object-modeling
 [obj model golang]: /riak/kv/2.1.4/developing/getting-started/golang/object-modeling
 [concept strong consistency]: /riak/kv/2.1.4/using/reference/strong-consistency
-[use ref strong consistency]: /riak/2.1.4/using/reference/strong-consistency
+[use ref strong consistency]: /riak/kv/2.1.4/using/reference/strong-consistency
 [cluster ops strong consistency]: /riak/kv/2.1.4/using/cluster-operations/strong-consistency
 [config strong consistency]: /riak/kv/2.1.4/configuring/strong-consistency
 [apps strong consistency]: /riak/kv/2.1.4/developing/app-guide/strong-consistency
@@ -58,6 +58,7 @@ canonical_link: "https://docs.basho.com/riak/kv/latest/developing/app-guide"
 [getting started]: /riak/kv/2.1.4/developing/getting-started
 [usage index]: /riak/kv/2.1.4/developing/usage
 [glossary]: /riak/kv/2.1.4/learn/glossary
+[write-once]: /riak/kv/2.1.4/developing/app-guide/write-once
 
 So you've decided to build an application using Riak as a data store. We
 think that this is a wise choice for a broad variety of use cases. But
@@ -242,6 +243,10 @@ Types and Search is coming soon.
   application needs to have access to all sibling values, then Riak Data
   Types are not a good choice because they by definition do not produce
   siblings.
+* **When you want to take advantage of [write-once buckets][write-once]**
+  --- If your application writes immutable data then it can benefit
+  from using write-once buckets.  This feature, however, is incompatible
+  with Riak Data Types.
 * **When your data just doesn't fit** --- While the five existing Data
   Types allow for a great deal of flexibility and a wide range of use
   cases, they don't cover all use cases. If you have data that requires

@@ -12,7 +12,7 @@ project_version: "1.3.0"
 toc: true
 aliases:
     - /riakts/1.3.0/developing/php/
-canonical_link: "docs.basho.com/riak/ts/latest/developing/php"
+canonical_link: "https://docs.basho.com/riak/ts/latest/developing/php"
 ---
 
 
@@ -29,6 +29,10 @@ TS support within the PHP client is implemented through the following 5 command 
 * Basho\Riak\Command\Builder\TimeSeries\DeleteRow
 * Basho\Riak\Command\Builder\TimeSeries\Query
 * Basho\Riak\Command\Builder\TimeSeries\DescribeTable
+
+Language | Source | Documentation |
+:--------|:-------|:--------------|
+PHP | [riak-php-client](https://github.com/basho/riak-php-client) | [apigen](http://basho.github.io/riak-php-client)
 
 
 ## Data Types

@@ -20,14 +20,14 @@ Although Riak wasn't explicitly created as a document store, two
 features recently added to Riak---[Riak Search](/riak/kv/2.0.6/developing/usage/search/) and [Riak Data Types](/riak/kv/2.0.6/developing/data-types/)---make it possible to use Riak as a
 highly scalable document store with rich querying capabilities. In this
 tutorial, we'll build a basic implementation of a document store using
-[Riak maps](/riak/kv/2.0.6/developing/data-types/#maps).
+[Riak maps](/riak/kv/2.0.6/developing/data-types/maps).
 
 ## Basic Approach
 
 Riak Search enables you to implement a document store in Riak in a
 variety of ways. You could, for example, store and query JSON objects or
 XML and then retrieve them later via Solr queries. In this tutorial,
-however, we will store data in [Riak maps](/riak/kv/2.0.6/developing/data-types/#maps),
+however, we will store data in [Riak maps](/riak/kv/2.0.6/developing/data-types/maps),
 index that data using Riak Search, and then run Solr queries against
 those stored objects.
 
@@ -209,7 +209,7 @@ curl -XPUT $RIAK_HOST/search/index/blog_posts \
 ## How Collections will Work
 
 Collections are not a concept that is native to Riak but we can easily
-mimic collections by thing of a bucket type as a collection. When we
+mimic collections by thinking of a bucket type as a collection. When we
 associate a bucket type with a Riak Search index, all of the objects
 stored in any bucket of that bucket type will be queryable on the basis
 of that one index. For this tutorial, we'll create a bucket type called
@@ -218,7 +218,7 @@ of that one index. For this tutorial, we'll create a bucket type called
 as a queryable collection, but we will not do that in this tutorial.
 
 The advantage of the bucket-type-based approach is that we could store
-blog posts from different blogs in different blog posts and query them
+blog posts from different blogs in different buckets and query them
 all at once as part of the same index. It depends on the use case at
 hand. In this tutorial, we'll only be storing posts from one blog, which
 is called "Cat Pics Quarterly" and provides in-depth theoretical
@@ -301,7 +301,7 @@ public class BlogPost {
             .update("keywords", keywordsUpdate)
             .update("date", dateUpdate)
             .update("published", publishedUpdate);
-        UpdateMap storeBlogPost = new UpdateMap.Builder(location)
+        UpdateMap storeBlogPost = new UpdateMap.Builder(location, mapUpdate)
             .build();
         client.execute(storeBlogPost);
     }

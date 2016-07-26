@@ -12,7 +12,7 @@ project_version: "1.3.0"
 toc: true
 aliases:
     - /riakts/1.3.0/developing/nodejs/
-canonical_link: "docs.basho.com/riak/ts/latest/developing/nodejs"
+canonical_link: "https://docs.basho.com/riak/ts/latest/developing/nodejs"
 ---
 
 
@@ -24,6 +24,10 @@ This document covers the Node.js API for Riak TS.
 
 To use Riak TS with Node.js, we've added several new commands in
 the `Riak.Commands.TS` namespace.
+
+Language | Source | Documentation | Download
+:--------|:-------|:--------------|:--------
+Node.js | [riak-nodejs-client](https://github.com/basho/riak-nodejs-client) | [api docs](http://basho.github.com/riak-nodejs-client/), [wiki](https://github.com/basho/riak-nodejs-client/wiki) | [NPM](https://www.npmjs.com/package/basho-riak-client), [GitHub Releases](https://github.com/basho/riak-nodejs-client/releases)
 
 The examples on this page will assume you are using the following table schema:
 
@@ -67,6 +71,10 @@ Retrieve TS value by key.
 ```javascript
 var Riak = require('basho-riak-client');
 
+//may pass client an array of host:port's
+//['192.168.1.1:8087','192.168.1.2:8087']
+var client = new Riak.Client(['127.0.0.1:8087']);
+
 var key = [ 'South Carolina', 'South Carolina', now ];
 
 var cb = function (err, rslt) {
@@ -98,6 +106,10 @@ Stores time series data in the Riak cluster.
 
 ```javascript
 var Riak = require('basho-riak-client');
+
+//may pass client an array of host:port's
+//['192.168.1.1:8087','192.168.1.2:8087']
+var client = new Riak.Client(['127.0.0.1:8087']);
 
 var now = new Date();
 
@@ -148,6 +160,10 @@ Delete TS value by key.
 ```javascript
 var Riak = require('basho-riak-client');
 
+//may pass client an array of host:port's
+//['192.168.1.1:8087','192.168.1.2:8087']
+var client = new Riak.Client(['127.0.0.1:8087']);
+
 var key = [ 'South Carolina', 'South Carolina', now ];
 
 var cb = function (err, rslt) {
@@ -179,6 +195,10 @@ Queries time series data in the Riak cluster.
 
 ```javascript
 var Riak = require('basho-riak-client');
+
+//may pass client an array of host:port's
+//['192.168.1.1:8087','192.168.1.2:8087']
+var client = new Riak.Client(['127.0.0.1:8087']);
 
 var cb = function (err, rslt) {
     // NB: rslt will be an object with two properties:
@@ -213,6 +233,10 @@ Lists all keys in a TS table via a stream.
 ```javascript
 var Riak = require('basho-riak-client');
 
+//may pass client an array of host:port's
+//['192.168.1.1:8087','192.168.1.2:8087']
+var client = new Riak.Client(['127.0.0.1:8087']);
+
 var allKeys = [];
 var callback = function(err, resp) {
     Array.prototype.push.apply(allKeys, resp.keys);
@@ -228,7 +252,7 @@ var cmd = new Riak.Commands.TS.ListKeys.Builder()
     .withCallback(callback)
     .build();
 
-cluster.execute(cmd);
+client.execute(cmd);
 ```
 
 |Builder Method | Type    | Description                                       |

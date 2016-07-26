@@ -36,8 +36,6 @@ Below is an example usage:
 riak-repl add-listener riak@10.0.1.156 10.0.1.156 9010
 ```
 
-{{#1.2.1+}}
-
 ## add-nat-listener
 
 Adds a NAT-aware listener (primary) to the given node, IP address, port,
@@ -53,7 +51,6 @@ Below is an example usage:
 ```bash
 riak-repl add-nat-listener riak@10.0.1.156 10.0.1.156 9010 50.16.238.123 9010
 ```
-{{/1.2.1+}}
 
 ## del-listener
 
@@ -163,7 +160,7 @@ restarting Riak Enterprise.
 
 Field | Description
 :-----|:-----------
-`client_stats` | See <a href="ops/mdc/v3/operations/#client-statistics">Client Statistics</a>
+`client_stats` | See <a href="http://docs.basho.com/riak/kv/2.1.4/using/reference/multi-datacenter/statistics/#client-statistics">Client Statistics</a>
 `client_bytes_recv` | The total number of bytes the client has received since the server has been started
 `client_bytes_sent` | The total number of bytes sent to all connected sites
 `client_connect_errors` | The number of TCP/IP connection errors
@@ -183,7 +180,7 @@ Field | Description
 `server_fullsyncs` | The number of fullsync operations that have occurred since the server was started
 `server_rx_kbps` | A snapshot of the server (listener) received kilobits/second taken once a minute. The past 8 snapshots are stored in this list. Newest snapshots appear on the left side of the list.
 `server_tx_kbps` | A snapshot of the server (listener) sent kilobits/second taken once a minute. The past 8 snapshots are stored in this list. Newest snapshots appear on the left side of the list.
-`server_stats` | See <a href="ops/mdc/v3/operations/#server-statistics">Server Statistics</a>
+`server_stats` | See <a href="http://docs.basho.com/riak/kv/2.1.4/using/reference/multi-datacenter/statistics/#server-statistics">Server Statistics</a>
 
 ### Elections and Objects
 
@@ -242,7 +239,7 @@ Field | Description
 `site` | The connected site name configured with `riak-repl add-site`
 `strategy` | A replication strategy defines an implementation of the Riak Replication protocol. Valid values: `keylist` or `syncv1`.
 `fullsync_worker` | The Erlang process ID of the fullsync worker
-`bounded_queue` | See the <a href="ops/mdc/v2/operations/#bounded-queue">Bounded Queue</a> section above
+`bounded_queue` | See the <a href="http://docs.basho.com/riak/kv/2.1.4/using/cluster-operations/v2-multi-datacenter/#bounded-queue">Bounded Queue</a> section above
 `state` | State shows what the current replication strategy is processing. The following definitions appear in the status output if the keylist strategy is being used. They can be used by Basho support to identify replication issues.<ul><li>`wait_for_partition`</li><li>`build_keylist`</li><li>`wait_keylist`</li><li>`diff_bloom`</li><li>`diff_keylist`</li></ul>s
 `message_queue_len` | The number of Erlang messages that are waiting to be processed by the server
 
