@@ -19,6 +19,7 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/using/querying/basic-quer
 [activating]: ../creating-activating/
 [writing]: ../writingdata/
 [planning]: ../planning#column-definitions
+[iso8601]: ../../timerepresentations/
 
 
 Now that you have [created][activating] a Riak TS table and [written][writing] data to it, you can query your data.
@@ -50,6 +51,17 @@ Any quantized field in your partition key must be included in the query as eithe
 * Invalid: `time > 1449864277000`
 * Invalid: `time > 1449864277000 or time < 1449864290000`
 
+#### ISO 8601
+
+As of Riak TS 1.4.0, it is possible to use ISO 8601-compliant
+date/time strings in `select` statements instead of integer
+timestamps:
+
+```
+time > '2015-12-11 20:04:37' and time < '2015-12-11 20:04:50'
+```
+
+See [our documentation on ISO 8601 support][iso8601] for more details.
 
 ### Local Key
 
