@@ -248,7 +248,7 @@ It is possible to use [ISO 8601]-compliant date/time strings in SELECT statement
 time > '2015-12-11 20:04:37' and time < '2015-12-11 20:04:50'
 ```
 
-You cannot use [reduced accuracy time representations][iso8601 accuracy]. In other words, you must specify your time down to the second (or use fractional
+You cannot use [reduced accuracy time representations][iso8601 accuracy]. Instead, you must specify your time down to the second (or use fractional
 times).
 
 ISO 8601 time strings are converted to a millisecond timestamp, which the query then uses.
