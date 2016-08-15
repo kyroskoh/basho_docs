@@ -6,7 +6,7 @@ menu:
     name: "SELECT"
     identifier: "select_riakts"
     weight: 100
-    parent: "querying"
+    parent: "querying_data_riakts"
 project: "riak_ts"
 project_version: "1.4.0"
 toc: true
@@ -14,6 +14,7 @@ aliases:
     - /riakts/1.4.0/using/querying/select
 canonical_link: "https://docs.basho.com/riak/ts/latest/using/querying/select"
 ---
+
 
 [aggregate functions]: aggregate-functions/
 [arithmetic operations]: arithmetic-operations/
