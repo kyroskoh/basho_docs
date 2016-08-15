@@ -6,7 +6,7 @@ menu:
     name: "SELECT"
     identifier: "select_riakts"
     weight: 100
-    parent: "querying"
+    parent: "querying_data_riakts"
 project: "riak_ts"
 project_version: "1.4.0"
 toc: true
