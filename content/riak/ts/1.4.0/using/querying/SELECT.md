@@ -15,6 +15,7 @@ aliases:
 canonical_link: "https://docs.basho.com/riak/ts/latest/using/querying/select"
 ---
 
+
 [aggregate functions]: aggregate-functions/
 [arithmetic operations]: arithmetic-operations/
 [GROUP BY]: group-by/
