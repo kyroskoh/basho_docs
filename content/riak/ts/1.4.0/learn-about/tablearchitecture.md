@@ -44,7 +44,7 @@ Riak TS has two types of keys:
 * *partition keys*, which determine where the data is placed on the cluster, and
 * *local keys*, which determine where the data is written in the partition.
 
-Partition keys can use *time quantization* to group data that will be queried together in the same physical part of the cluster. Time quantization says “group data by 15 minute clumps, or 10 second clumps, or 60 day clumps” depending on how quickly your time series data come in and how you need to analyze them. The quantization is configurable on a table level.
+Partition keys can use *time quantization* to group data that will be queried together in the same physical part of the cluster. Time quantization says "group data by 15 minute clumps, or 10 second clumps, or 60 day clumps" depending on how quickly your time series data come in and how you need to analyze them. The quantization is configurable on a table level.
 
 In order to query TS data, data is structured using a specific schema. The schema defines what data can be stored in a TS table and what type it has. Queries can then be written against that schema and the TS query system can validate and execute them.
 
@@ -73,57 +73,7 @@ CREATE TABLE GeoCheckin
 
 ### Column Definitions
 
-Column definitions are the lines preceding the `PRIMARY KEY` in the example. Column definitions define the structure of the data. They are comprised of three parts: a column name, a data type, and (optionally) an inline constraint. 
 
-```sql
-column_name data_type [NOT NULL],
-```
-
-Column names (`region`, `state`, etc) must be ASCII strings, in addition to having the correct case. If column names need to contain spaces or punctuation they can be double quoted.
-
-Any column names specified as part of the primary key must be defined as `NOT NULL`.
-
-The column definitions for the keys can be specified in any order in the `CREATE TABLE` statement. For instance both are correct:
-
-**A.**
-```sql
-CREATE TABLE GeoCheckin
-(
-   region       VARCHAR   NOT NULL,
-   state        VARCHAR   NOT NULL,
-   time         TIMESTAMP NOT NULL,
-   weather      VARCHAR   NOT NULL,
-   temperature  DOUBLE,
-   PRIMARY KEY (
-     (region, state, QUANTUM(time, 15, 'm')),
-      region, state, time
-   )
-)
-```
-
-**B.**
-```sql
-CREATE TABLE GeoCheckin
-(
-   time         TIMESTAMP NOT NULL,
-   state        VARCHAR   NOT NULL,
-   weather      VARCHAR   NOT NULL,
-   region       VARCHAR   NOT NULL,
-   temperature  DOUBLE,
-   PRIMARY KEY (
-     (region, state, QUANTUM(time, 15, 'm')),
-      region, state, time
-   )
-)
-```
-
-The data types in column definitions are limited. Valid types are:
-
-* `VARCHAR` - Any string content is valid, including Unicode. Can only be compared using strict equality, and will not be typecast (e.g., to an integer) for comparison purposes. Use single quotes to delimit varchar strings.
-* `BOOLEAN` - `true` or `false` (any case)
-* `TIMESTAMP` - Timestamps are integer values expressing [UNIX epoch time in UTC][epoch] in milliseconds. Zero is not a valid timestamp.
-* `SINT64` - Signed 64-bit integer
-* `DOUBLE` - This type does not comply with its IEEE specification: `NaN` (not a number) and `INF` (infinity) cannot be used.
 
 
 ### Primary Key
