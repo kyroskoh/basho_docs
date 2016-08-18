@@ -37,6 +37,10 @@ With Riak TS, you no longer have to build your own time series database on Riak 
 
 ## Basic Structure of a Riak TS Table
 
+In order to query TS data, data is structured using a specific schema. In particular, each row of data in a TS table consists of a set of columns. The definition of those columns happens when a table is created, and determines what data can be stored in the table. Queries can then be written against that schema and the TS query system can validate and execute them.
+
+The schema of a TS table is comprised of column definitions and a primary key. The column definitions define the structure and type of the data in your table. The primary key contains two keys which determine how your data is stored and, therefore, how it is queried.
+
 Riak TS enables querying large amounts of related data, so keys behave differently than in Riak KV.
 
 Riak TS has two types of keys:
@@ -46,7 +50,7 @@ Riak TS has two types of keys:
 
 Partition keys can use *time quantization* to group data that will be queried together in the same physical part of the cluster. Time quantization says "group data by 15 minute clumps, or 10 second clumps, or 60 day clumps" depending on how quickly your time series data come in and how you need to analyze them. The quantization is configurable on a table level.
 
-In order to query TS data, data is structured using a specific schema. The schema defines what data can be stored in a TS table and what type it has. Queries can then be written against that schema and the TS query system can validate and execute them.
+Local keys group similar kinds of data together in the partition, impacting your query performance.
 
 We have combined the definition of the various keys and the data schema into a single SQL-like statement. The query language is a subset of SQL, so you will use the column names and the table name in those queries; SQL conventions such as case sensitivity hold.
 
@@ -70,54 +74,6 @@ CREATE TABLE GeoCheckin
    )
 )
 ```
-
-
-### Column Definitions
-
-
-
-### Primary Key
-
-The `PRIMARY KEY` describes both the partition key and local key. The partition key is a prefix of the local key, consisting of one or more column names. The local key must begin with the same column names as the partition key, but may also contain additional column names.
-
-
-#### Partition Key
-
-
-The partition key is the first element of the primary key, and is defined as a list of  column names in parentheses. The partition key must have at least one column name.
-
-If you choose to include a quantum, it will be used to colocate data on one of the partition key's timestamp fields:
-
-```sql
-PRIMARY KEY  ((id, QUANTUM(time, 1, 's')), ...)
-```
-
-Only one quantum function may be specified and it must be the last element of the partition key.
-
-The quantum function takes 3 parameters:
-
-* the name of a field in the table definition of type `TIMESTAMP`
-* a quantity as a positive integer, greater than zero.
-* a unit of time:
-  * `'d'` - days
-  * `'h'` - hours
-  * `'m'` - minutes
-  * `'s'` - seconds
-
-A general guideline to get you started if you are not sure how best to structure your partition key is to first choose a column name that represents a class or type of data, and then choose a  second column name represents is a more specific instance(s) of the class/type.
-
-
-#### Local Key
-
-The second key (local key) MUST have the same fields in the same order as the partition key. This ensures that the keys are unique for that partition.
-
-It can also have additional fields AFTER the fields in the partition key.
-
-```sql
-((id, QUANTUM(time, 15, 'm')), id, time, state, weather)
-```
-
-Note that weather is in the local key but not in the partition key.  Fields in the partition key must be covered by a queries where clause, additional fields in the local key do **not** have to be covered.
 
 
 ## Riak TS Tables in Command Line
