@@ -60,7 +60,7 @@ A TS table is made up of:
 
 The column definitions will determine the columns of your TS table, while the primary key determines where data is stored in your TS cluster.
 
-While the keywords appear in all uppercase letters here, keywords are not case sensitive.
+Keywords are case sensitive, so be sure to capitalize appropriately.
 
 {{% note title="Table Limitations" %}}
 You cannot create a table with more than 511 total columns. If you try to create a table with more than 511 columns, you will receive an error.

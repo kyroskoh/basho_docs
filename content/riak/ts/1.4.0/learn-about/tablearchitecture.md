@@ -16,7 +16,7 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/learn-about/tablearchitec
 ---
 
 
-[activating]: ../../using/creating-activating/
+[activating verify]: ../../using/creating-activating/#verify-creation-and-activation
 [configuring]: ../../using/configuring/
 [planning]: ../../using/planning
 [sql]: ../sqlriakts/
@@ -78,7 +78,7 @@ CREATE TABLE GeoCheckin
 
 ## Riak TS Tables in Command Line
 
-When you [verify that your table was properly created][activating], you'll see a response that shows your table's schema on the command line. It will look something like this:
+When you [verify that your table was properly created][activating verify], you'll see a response that shows your table's schema on the command line. It will look something like this:
 
 ```sh
 $ riak-admin bucket-type status GeoCheckin

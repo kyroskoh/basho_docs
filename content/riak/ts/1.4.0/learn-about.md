@@ -18,6 +18,10 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/learn-about"
 [table arch]: tablearchitecture/
 [bestpractices]: bestpractices/
 [sqlriakts]: sqlriakts/
+<<<<<<< HEAD
+=======
+[timestamps]: timestamps/
+>>>>>>> d4bb125... Moar broken links
 
 
 Welcome to Learning About Riak TS! In this section you will find the following:
