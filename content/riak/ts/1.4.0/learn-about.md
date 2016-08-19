@@ -18,7 +18,7 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/learn-about"
 [table arch]: tablearchitecture/
 [bestpractices]: bestpractices/
 [sqlriakts]: sqlriakts/
-[sqlriakts]: timestamps/
+[timestamps]: timestamps/
 
 
 Welcome to Learning About Riak TS! In this section you will find the following:

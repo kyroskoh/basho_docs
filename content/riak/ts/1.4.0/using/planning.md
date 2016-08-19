@@ -19,7 +19,7 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/using/planning"
 [activating]: ../creating-activating/
 [table arch]: ../../learn-about/tablearchitecture/
 [bestpractices]: ../../learn-about/bestpractices/
-[describe]: riak/ts/1.4.0/using/querying/describe/
+[describe]: ../querying/describe/
 [epoch]: https://en.wikipedia.org/wiki/Unix_time
 [installing]: ../../setup/installing/
 [sql]: ../../learn-about/sqlriakts/
@@ -60,7 +60,7 @@ A TS table is made up of:
 
 The column definitions will determine the columns of your TS table, while the primary key determines where data is stored in your TS cluster.
 
-While the keywords appear in all uppercase letters here, keywords are not case sensitive.
+Keywords are case sensitive, so be sure to capitalize appropriately.
 
 {{% note title="Table Limitations" %}}
 You cannot create a table with more than 511 total columns. If you try to create a table with more than 511 columns, you will receive an error.
@@ -227,7 +227,7 @@ After creating a table, its schema can be discovered with the [DESCRIBE statemen
 DESCRIBE GeoCheckin
 ```
 
-The `DESCRIBE` statement will return the following:
+`DESCRIBE` will return the following:
 
 * **Column**, column name;
 * **Type**, data type;
