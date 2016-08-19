@@ -19,7 +19,7 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/using/planning"
 [activating]: ../creating-activating/
 [table arch]: ../../learn-about/tablearchitecture/
 [bestpractices]: ../../learn-about/bestpractices/
-[describe]: riak/ts/1.4.0/using/querying/describe/
+[describe]: ../querying/describe/
 [epoch]: https://en.wikipedia.org/wiki/Unix_time
 [installing]: ../../setup/installing/
 [sql]: ../../learn-about/sqlriakts/
@@ -227,7 +227,7 @@ After creating a table, its schema can be discovered with the [DESCRIBE statemen
 DESCRIBE GeoCheckin
 ```
 
-The `DESCRIBE` statement will return the following:
+`DESCRIBE` will return the following:
 
 * **Column**, column name;
 * **Type**, data type;
