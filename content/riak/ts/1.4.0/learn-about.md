@@ -18,10 +18,7 @@ canonical_link: "https://docs.basho.com/riak/ts/latest/learn-about"
 [table arch]: tablearchitecture/
 [bestpractices]: bestpractices/
 [sqlriakts]: sqlriakts/
-<<<<<<< HEAD
-=======
 [timestamps]: timestamps/
->>>>>>> d4bb125... Moar broken links
 
 
 Welcome to Learning About Riak TS! In this section you will find the following:
@@ -29,3 +26,4 @@ Welcome to Learning About Riak TS! In this section you will find the following:
 * [Table Architecture][table arch] - An in-depth look at the structure and format of a Riak TS table, including interacting on the command line and data modeling.
 * [Best Practices][bestpractices] - Basho's recommendations for defining your storage regions (DDL) and choosing your quanta.
 * [SQL for Riak TS][sqlriakts] - An overview of some SQL basics and how SQL is used in Riak TS.
+* [Timestamps][timestamps] - An overview of Timestamps in Riak TS, their structure, and frequently asked questions.
